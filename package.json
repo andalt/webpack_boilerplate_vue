@@ -1,37 +1,40 @@
 {
-  "name": "Webpack_Boilerplate",
+  "name": "Webpack_Boilerplate_Vue",
   "version": "1.0.0",
-  "description": "Webpack_Boilerplate",
+  "description": "Webpack_Boilerplate_Vue",
   "main": "/",
   "dependencies": {
     "es6-promise": "^4.2.4"
   },
   "devDependencies": {
-    "autoprefixer": "^8.1.0",
-    "babel-core": "^6.26.0",
-    "babel-eslint": "^8.2.2",
-    "babel-loader": "^7.1.3",
-    "babel-preset-env": "^1.6.1",
+    "autoprefixer": "^9.1.1",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
     "clean-webpack-plugin": "^0.1.19",
-    "copy-webpack-plugin": "^4.5.1",
-    "css-loader": "^0.28.10",
-    "eslint": "^4.18.1",
-    "eslint-config-smarthead": "^1.6.3",
-    "eslint-plugin-import": "^2.9.0",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "copy-webpack-plugin": "^4.5.2",
+    "css-loader": "^1.0.0",
+    "eslint": "^5.3.0",
+    "eslint-config-smarthead": "^1.7.0",
+    "eslint-plugin-import": "^2.14.0",
     "file-loader": "^1.1.11",
-    "node-sass": "^4.7.2",
-    "postcss-loader": "^2.1.1",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.0",
+    "postcss-loader": "^3.0.0",
     "pug-html-loader": "^1.1.5",
-    "sass-loader": "^6.0.7",
-    "style-loader": "^0.20.2",
-    "stylelint": "^9.1.3",
-    "stylelint-config-smarthead": "^0.1.1",
-    "stylelint-scss": "^2.5.0",
-    "webpack": "^4.1.0",
-    "webpack-cli": "^2.0.10",
-    "webpack-dev-server": "^3.1.0",
-    "webpack-merge": "^4.1.2"
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.22.1",
+    "stylelint": "^9.4.0",
+    "stylelint-config-smarthead": "^1.0.0",
+    "stylelint-scss": "^3.3.0",
+    "uglifyjs-webpack-plugin": "^1.3.0",
+    "vue": "^2.5.17",
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5",
+    "webpack-merge": "^4.1.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -45,7 +48,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/andalt/webpack_boilerplate.git"
+    "url": "https://github.com/andalt/webpack_boilerplate_vue.git"
   },
   "keywords": [
     "webpack"
