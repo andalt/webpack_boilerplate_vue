@@ -1,13 +1,9 @@
 <template lang="pug">
-    div I'm test 1!
+    div {{ message }}
 </template>
 
-<script>
-    export default {
-        name: "test"
-    }
-</script>
+<script src="../../js/components/Test.js"></script>
 
-<style scoped>
+<!--<style lang="scss" scoped>
 
-</style>
+</style>-->

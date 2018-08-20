@@ -48,7 +48,7 @@ const config = {
     },
 
     plugins: [
-        extractStyles
+        extractStyles,
     ],
 
     optimization: {
@@ -58,7 +58,7 @@ const config = {
                 parallel: true,
                 sourceMap: true,
             }),
-            new OptimizeCSSAssetsPlugin({})
+            new OptimizeCSSAssetsPlugin({}),
         ]
     },
 };

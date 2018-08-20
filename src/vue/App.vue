@@ -5,6 +5,7 @@
 </template>
 
 <script src="../js/app/App.js"></script>
-<!--<style lang="scss">
+
+<!--<style lang="scss" scoped>
 
 </style>-->

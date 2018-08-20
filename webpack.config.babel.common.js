@@ -61,7 +61,7 @@ const config = {
         modules: ['./src', 'node_modules'],
 
         alias: {
-            vue: 'vue/dist/vue.js',
+            vue: 'vue/dist/vue.min.js',
             Styles: path.resolve(__dirname, './src/scss'),
             Js: path.resolve(__dirname, './src/js'),
             Pug: path.resolve(__dirname, './src/pug')

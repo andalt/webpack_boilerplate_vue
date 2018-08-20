@@ -15,7 +15,6 @@ const config = {
                 exclude: /node_modules/,
                 use: [
                     'vue-style-loader',
-                    // 'style-loader',
                     'css-loader',
                     {
                         loader: 'postcss-loader',
