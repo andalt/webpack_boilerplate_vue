@@ -1,10 +1,9 @@
 import css from 'Styles/index.scss';
 import pug from 'Pug/index.pug';
 import Vue from 'vue'
+import App from '../vue/App.vue'
 
 // import User from './components/componentOne';
-
-// console.log(123);
 
 // Init App
 // document.addEventListener('DOMContentLoaded', app);
@@ -13,9 +12,30 @@ import Vue from 'vue'
     module.hot.accept();
 } */
 
-/* new Vue({
+/* const appVm = new Vue({
     el: '#app',
     data: {
-        message: 'Hello Vue.js 2!'
-    }
+        message: 'Hello Vue.js 3!',
+        rawHtml: '<span style="color: red">Текст должен быть красным.</span>',
+        seen1: false,
+    },
+    created: function () {
+        console.log('Значение message: ' + this.message)
+    },
+    methods: {
+        reverseMessage: function () {
+            return this.message.split('').reverse().join('')
+        }
+    },
 }); */
+
+
+new Vue({
+    el: '#appVm',
+    template: '<App/>',
+    components: { App }
+});
+
+if (module.hot) {
+    module.hot.accept();
+}

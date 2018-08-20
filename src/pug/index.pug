@@ -15,7 +15,13 @@ html(lang='')
 
         link(rel='stylesheet', href='css/index.css')
 
-    body Webpack native
-        #app
+    body
+        // #app
             p {{ message }}
+            p Двойные фигурные скобки: {{ rawHtml }}
+            p Директива v-html:
+                span(v-html="rawHtml")
+            p(v-if="seen1") Сейчас меня видно
+            p Сообщение задом наперёд: "{{ reverseMessage() }}"
+        #appVm
         script(src='js/index.js')

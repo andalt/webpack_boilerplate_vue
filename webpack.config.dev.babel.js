@@ -1,7 +1,7 @@
 import merge from 'webpack-merge';
 import path from 'path';
 import autoPreFixer from 'autoprefixer';
-// import webpack from 'webpack';
+import webpack from 'webpack';
 
 import common from './webpack.config.babel.common';
 
@@ -14,7 +14,8 @@ const config = {
                 test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [
-                    'style-loader',
+                    'vue-style-loader',
+                    // 'style-loader',
                     'css-loader',
                     {
                         loader: 'postcss-loader',
@@ -35,16 +36,16 @@ const config = {
         port: 1111,
         inline: true,
         host: '0.0.0.0',
-        // hot: true,
-        contentBase: path.resolve(__dirname, './build')
-        // hotOnly: true,
-        // historyApiFallback: true
-    }
+        hot: true,
+        contentBase: path.resolve(__dirname, './build'),
+        hotOnly: true,
+        historyApiFallback: true,
+    },
 
-    /* plugins: [
+    plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin()
-    ] */
+        new webpack.NamedModulesPlugin(),
+    ],
 };
 
 module.exports = merge(common, config);
