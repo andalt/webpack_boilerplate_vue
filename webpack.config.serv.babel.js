@@ -1,20 +1,15 @@
-import merge from 'webpack-merge';
+import webpack from 'webpack';
 import autoPreFixer from 'autoprefixer';
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
-
+import path from 'path';
+import merge from 'webpack-merge';
 import common from './webpack.config.common.babel';
-
-const extractStyles = new MiniCssExtractPlugin({
-    filename: 'css/[name].css',
-    allChunks: false
-});
 
 const config = {
     entry: [
         'js/index.js',
     ],
 
-    devtool: 'source-map',
+    devtool: 'eval-source-map',
 
     module: {
         rules: [
@@ -22,15 +17,8 @@ const config = {
                 test: /\.(sa|sc|c)ss$/,
                 exclude: /node_modules/,
                 use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            publicPath: '../'
-                        }
-                    },
-                    {
-                        loader: 'css-loader',
-                    },
+                    'vue-style-loader',
+                    'css-loader',
                     {
                         loader: 'postcss-loader',
                         options: {
@@ -45,9 +33,18 @@ const config = {
         ]
     },
 
+    devServer: {
+        compress: true,
+        port: 1111,
+        inline: true,
+        host: '0.0.0.0',
+        contentBase: path.resolve(__dirname, './build'),
+        historyApiFallback: true,
+    },
+
     plugins: [
-        extractStyles,
+        new webpack.NamedModulesPlugin(),
     ],
 };
 
-module.exports = merge(common, config);
+export default merge(common, config);

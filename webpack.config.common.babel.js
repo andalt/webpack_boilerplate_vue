@@ -4,16 +4,18 @@ import CleanWebpackPlugin from 'clean-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import VueLoaderPlugin from 'vue-loader/lib/plugin';
 
-const config = {
-    context: path.resolve(__dirname, 'src'),
+import APP_CONFIG from './config/configApp.json';
 
-    entry: {
-        index: 'js/index.js'
-    },
+const NODE_ENV = process.env.NODE_ENV || 'development';
+
+const config = {
+    mode: 'none',
+
+    context: path.resolve(__dirname, 'src'),
 
     output: {
         path: path.resolve(__dirname, 'build'),
-        filename: 'js/[name].js',
+        filename: 'js/index.js',
         publicPath: '/'
     },
 
@@ -31,7 +33,24 @@ const config = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: 'babel-loader'
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            babelrc: false,
+                            presets: [
+                                [
+                                    '@babel/preset-env',
+                                    { targets: { browsers: 'last 2 versions' } },
+                                ],
+                            ],
+                            plugins: [
+                                '@babel/plugin-proposal-class-properties',
+                            ],
+                            cacheDirectory: true,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.pug$/,
@@ -58,10 +77,15 @@ const config = {
     },
 
     resolve: {
-        modules: ['./src', 'node_modules'],
+        modules: [
+            path.resolve(__dirname, './src'),
+            'node_modules',
+        ],
+
+        extensions: ['.js', '.jsx', '.json', '.vue'],
 
         alias: {
-            vue: 'vue/dist/vue.min.js',
+            vue: 'vue/dist/vue.js',
             Styles: path.resolve(__dirname, './src/scss'),
             Js: path.resolve(__dirname, './src/js'),
             Pug: path.resolve(__dirname, './src/pug')
@@ -81,6 +105,11 @@ const config = {
         }]),
 
         new VueLoaderPlugin(),
+
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
+            APP_CONFIG: JSON.stringify(APP_CONFIG),
+        }),
     ]
 };
 
