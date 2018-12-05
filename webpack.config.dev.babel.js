@@ -1,12 +1,12 @@
 import merge from 'webpack-merge';
 import autoPreFixer from 'autoprefixer';
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 import common from './webpack.config.common.babel';
 
 const extractStyles = new MiniCssExtractPlugin({
     filename: 'css/[name].css',
-    allChunks: false
+    allChunks: false,
 });
 
 const config = {
@@ -25,8 +25,8 @@ const config = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: '../'
-                        }
+                            publicPath: '../',
+                        },
                     },
                     {
                         loader: 'css-loader',
@@ -35,14 +35,14 @@ const config = {
                         loader: 'postcss-loader',
                         options: {
                             plugins: () => [autoPreFixer({
-                                browsers: ['last 2 versions']
-                            })]
-                        }
+                                browsers: ['last 2 versions'],
+                            })],
+                        },
                     },
-                    'sass-loader'
-                ]
-            }
-        ]
+                    'sass-loader',
+                ],
+            },
+        ],
     },
 
     plugins: [

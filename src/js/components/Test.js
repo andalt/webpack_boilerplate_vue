@@ -1,7 +1,7 @@
 export default {
-    data () {
+    data() {
         return {
-            message: "I'm test 1!"
-        }
+            message: "I'm test 1!",
+        };
     },
-}
+};

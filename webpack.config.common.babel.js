@@ -16,7 +16,7 @@ const config = {
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: 'js/index.js',
-        publicPath: '/'
+        publicPath: '/',
     },
 
     module: {
@@ -26,9 +26,9 @@ const config = {
                 loader: 'vue-loader',
                 options: {
                     loaders: {
-                        js: 'babel-loader'
-                    }
-                }
+                        js: 'babel-loader',
+                    },
+                },
             },
             {
                 test: /\.js$/,
@@ -67,13 +67,13 @@ const config = {
                     {
                         use: ['raw-loader', 'pug-plain-loader'],
                     },
-                ]
+                ],
             },
             {
                 test: /\.(eot|ttf|woff|woff2|jpe?g|png|gif|svg)$/,
                 loader: 'file-loader?name=[path][name].[ext]'
-            }
-        ]
+            },
+        ],
     },
 
     resolve: {
@@ -88,7 +88,7 @@ const config = {
             vue: 'vue/dist/vue.js',
             Styles: path.resolve(__dirname, './src/scss'),
             Js: path.resolve(__dirname, './src/js'),
-            Pug: path.resolve(__dirname, './src/pug')
+            Pug: path.resolve(__dirname, './src/pug'),
         },
     },
 
@@ -96,12 +96,12 @@ const config = {
         new CleanWebpackPlugin(path.resolve(__dirname, './build')),
 
         new webpack.ProvidePlugin({
-            Promise: 'es6-promise'
+            Promise: 'es6-promise',
         }),
 
         new CopyWebpackPlugin([{
             from: 'public',
-            to: path.resolve(__dirname, './build')
+            to: path.resolve(__dirname, './build'),
         }]),
 
         new VueLoaderPlugin(),
@@ -110,7 +110,7 @@ const config = {
             'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
             APP_CONFIG: JSON.stringify(APP_CONFIG),
         }),
-    ]
+    ],
 };
 
 module.exports = config;

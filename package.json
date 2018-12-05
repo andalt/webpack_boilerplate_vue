@@ -4,7 +4,8 @@
   "description": "Webpack_Boilerplate_Vue",
   "main": "/",
   "dependencies": {
-    "es6-promise": "^4.2.4"
+    "es6-promise": "^4.2.4",
+    "vue": "^2.5.17"
   },
   "devDependencies": {
     "@babel/core": "^7.2.0",
@@ -24,6 +25,7 @@
     "eslint-config-smarthead": "^1.8.0",
     "eslint-plugin-import": "^2.14.0",
     "file-loader": "^2.0.0",
+    "husky": "^1.2.0",
     "mini-css-extract-plugin": "^0.4.5",
     "node-sass": "^4.10.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
@@ -36,7 +38,6 @@
     "stylelint-config-smarthead": "^1.1.0",
     "stylelint-scss": "^3.4.0",
     "uglifyjs-webpack-plugin": "^2.0.1",
-    "vue": "^2.5.17",
     "vue-loader": "^15.4.2",
     "vue-style-loader": "^4.1.2",
     "vue-template-compiler": "^2.5.17",
@@ -52,8 +53,10 @@
     "build": "cross-env NODE_ENV=development webpack --config webpack.config.dev.babel.js",
     "start": "webpack-dev-server --color --config webpack.config.serv.babel.js",
     "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint --color --quiet --fix ./src/**/*.{js,jsx}",
-    "lint:css": "stylelint ./src/**/*.{scss,css} !./src/scss/vendor/*.{scss,css}"
+    "lint:js": "eslint --color --quiet ./src/**/*.{js,jsx}",
+    "lint:css": "stylelint ./src/**/*.{scss,css} !**/vendor/** !**/public/**",
+    "precommit": "npm run lint",
+    "prepush": "npm run lint"
   },
   "repository": {
     "type": "git",

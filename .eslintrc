@@ -1,8 +1,14 @@
 {
     "extends": "eslint-config-smarthead",
-    "rules": {
-        "indent": ["error", 4],
-        "linebreak-style": 0,
-        "comma-dangle": [2, "never"]
+    "parser": "babel-eslint",
+    "globals": {
+        "APP_CONFIG": false
+    },
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "config": "webpack.config.common.babel.js"
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
-import css from 'Styles/index.scss';
-import pug from 'Pug/index.pug';
-import Vue from 'vue'
-import App from '../vue/App.vue'
+import '../scss/index.scss';
+import '../pug/index.pug';
+import Vue from 'vue';
+import App from '../vue/App.vue';
 
 // import User from './components/componentOne';
 
@@ -29,12 +29,11 @@ import App from '../vue/App.vue'
     },
 }); */
 
-
-new Vue({
+(() => new Vue({
     el: '#appVm',
     template: '<App/>',
-    components: { App }
-});
+    components: { App },
+}))();
 
 if (module.hot) {
     module.hot.accept();

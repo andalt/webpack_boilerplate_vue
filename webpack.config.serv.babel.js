@@ -23,14 +23,14 @@ const config = {
                         loader: 'postcss-loader',
                         options: {
                             plugins: () => [autoPreFixer({
-                                browsers: ['last 2 versions']
-                            })]
-                        }
+                                browsers: ['last 2 versions'],
+                            })],
+                        },
                     },
-                    'sass-loader'
-                ]
-            }
-        ]
+                    'sass-loader',
+                ],
+            },
+        ],
     },
 
     devServer: {
